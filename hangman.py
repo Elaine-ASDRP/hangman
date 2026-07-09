@@ -5,8 +5,12 @@ import random
 def initialize_word_bank(): 
     words_set = get_english_words_set(['web2'], lower=True)
     # optional: filter words to keep them b/w 4-12 letters 
-    word_list = [word for word in words_set if 4 <= length(word) <= 12]
+    word_list = [word for word in words_set if 4 <= len(word) <= 12]
     return list(word_list)
+
 
 alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 print("Let's play hangman!")
+
+word_bank = initialize_word_bank()
+secret_word = random.choice(word_bank)
