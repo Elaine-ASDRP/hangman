@@ -21,6 +21,8 @@ wrong_guesses = 0
 lives = 6 
 guess= "ab"
 
+display = ["_"] * len(secret_word)
+
 def check_guess(secret_word, alphabet):
     while True:
         guess = input("Guess a letter: ").lower()
@@ -43,4 +45,5 @@ def check_guess(secret_word, alphabet):
             print("One life lost!")
             lives = lives - 1
             return guess, False
+            
 
