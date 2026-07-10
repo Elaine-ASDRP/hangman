@@ -26,6 +26,11 @@ wrong_guesses = 0
 lives = 6 
 guess= "ab"
 
+def display_word(secret_word, guessed_letters):
+    return " ".join(
+        letter if letter in guessed_letters else "_" for letter in secret_word
+    )
+    
 def check_guess(secret_word, alphabet, guessed_letters):
     while True:
         guess = input("Guess a letter: ").lower()
