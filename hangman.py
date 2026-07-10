@@ -21,7 +21,7 @@ wrong_guesses = 0
 lives = 6 
 guess= "ab"
 
-def check_guess(secret_word, alphabet):
+def check_guess(secret_word, alphabet, guessed_letters):
     while True:
         guess = input("Guess a letter: ").lower()
 
@@ -35,12 +35,10 @@ def check_guess(secret_word, alphabet):
             print("Please enter a valid letter.")
             continue
 
-        # Valid input, now check if it's in the word
-        if guess in secret_word:
-            print("Correct!")
-            return guess, True
-        else:
-            print("One life lost!")
-            lives = lives - 1
-            return guess, False
+        # Check if it has already been guessed
+        if guess in guessed_letters:
+            print("You already guessed that letter.")
+            continue
+
+        guessed_letters.append(guess)
 
