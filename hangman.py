@@ -14,3 +14,33 @@ print("Let's play hangman!")
 
 word_bank = initialize_word_bank()
 secret_word = random.choice(word_bank)
+#empty list, will grow to contain all the letters guessed, helps avoid repeats
+guessed_letters = []
+wrong_guesses = 0
+#six lives
+lives = 6 
+guess= "ab"
+
+def check_guess(secret_word, alphabet):
+    while True:
+        guess = input("Guess a letter: ").lower()
+
+        # Check that exactly one character was entered
+        if len(guess) != 1:
+            print("Please enter exactly one letter.")
+            continue
+
+        # Check that it is a letter
+        if guess not in alphabet:
+            print("Please enter a valid letter.")
+            continue
+
+        # Valid input, now check if it's in the word
+        if guess in secret_word:
+            print("Correct!")
+            return guess, True
+        else:
+            print("One life lost!")
+            lives = lives - 1
+            return guess, False
+
