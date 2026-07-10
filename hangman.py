@@ -34,6 +34,10 @@ def display_word(secret_word, guessed_letters):
 def check_guess(secret_word, alphabet, guessed_letters):
     while True:
         guess = input("Guess a letter: ").lower()
+        print(f"Lives left: {lives}")
+        if lives == 0:
+        print(f"Out of lives! The word was '{secret_word}'.")
+        break
 
         # Check that exactly one character was entered
         if len(guess) != 1:
