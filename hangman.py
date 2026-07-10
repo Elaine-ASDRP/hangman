@@ -85,4 +85,4 @@ def main():
                 break 
             else: 
                 print("Invalid input. Play again? [y/n]")
-
+(" ".join(display = ["_"] * len(secret_word)))
