@@ -3,11 +3,6 @@ from english_words import get_english_words_set
 import random 
 
 def initialize_word_bank(): 
-    """Initialize, return a set of English words from the web2 word list
-
-    Returns:
-        list: complete list of words between [4, 12] characters long
-    """
     words_set = get_english_words_set(['web2'], lower=True)
     # optional: filter words to keep them b/w 4-12 letters 
     word_list = [word for word in words_set if 4 <= len(word) <= 12]
@@ -25,6 +20,8 @@ wrong_guesses = 0
 #six lives
 lives = 6 
 guess= "ab"
+
+print(" ".join(display = ["_"] * len(secret_word)))
 
 def check_guess(secret_word, alphabet, guessed_letters):
     while True:
@@ -46,29 +43,4 @@ def check_guess(secret_word, alphabet, guessed_letters):
             continue
 
         guessed_letters.append(guess)
-
-def main():
-    """Control overall game loop and execute hangman game logic
-    """
-    word_list = initialize_word_bank()
-
-    play_again = True 
-
-    while play_again is True: 
-        play_single_game(word_list) 
-
-        while True: 
-            print("Play again? [y/n]")
-            response = input(">").lowercase().strip()
-
-            if response =="y": 
-                print("New game")
-                play_again = True
-                break 
-            elif response == "n":
-                print("Thanks for playing")
-                play_again = False
-                break 
-            else: 
-                print("Invalid input. Play again? [y/n]")
 
