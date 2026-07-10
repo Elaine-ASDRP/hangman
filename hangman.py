@@ -26,14 +26,21 @@ wrong_guesses = 0
 lives = 6 
 guess= "ab"
 
+
+print(" ".join(display = ["_"] * len(secret_word)))
+
 def display_word(secret_word, guessed_letters):
     return " ".join(
         letter if letter in guessed_letters else "_" for letter in secret_word
     )
     
-def check_guess(secret_word, alphabet, guessed_letters, lives):
+def check_guess(secret_word, alphabet, guessed_letters):
     while True:
         guess = input("Guess a letter: ").lower()
+        print(f"Lives left: {lives}")
+        if lives == 0:
+        print(f"Out of lives! The word was '{secret_word}'.")
+        break
 
         # Check that exactly one character was entered
         if len(guess) != 1:
@@ -51,15 +58,6 @@ def check_guess(secret_word, alphabet, guessed_letters, lives):
             continue
 
         guessed_letters.append(guess)
-
-        # Check if the letter is in the word
-        if guess in secret_word:
-            print("Correct!")
-        else:
-            print("Letter not found!")
-            lives -= 1
-
-        return guess, lives
 
 def main():
     """Control overall game loop and execute hangman game logic
