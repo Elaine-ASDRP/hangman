@@ -60,7 +60,9 @@ def play_single_game(word_list):
             print(f"Wrong! You have {lives} lives left.")
 
         print("Word:", " ".join(display))
+        print(f"Lives remaining: {lives}")
         print("Guessed letters:", " ".join(sorted(guessed_letters)))
+        print()
 
     if "_" not in display:
         print("Congratulations! You win!")
