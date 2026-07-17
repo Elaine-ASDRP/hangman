@@ -1,4 +1,5 @@
 # This is the Hangman python script
+#Members: Arya Iyer, Ananya Baphna, Elaine Wang, Diana Naida, Rishita Mudradi
 from english_words import get_english_words_set
 import random
 
